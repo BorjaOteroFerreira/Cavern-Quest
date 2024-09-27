@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane prefHeight="135.0" prefWidth="97.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MapaController">
+   <children>
+      <HBox fx:id="hbox" onKeyPressed="#mover" prefHeight="229.0" prefWidth="178.0">
+         <children>
+            <VBox fx:id="vbox" nodeOrientation="LEFT_TO_RIGHT" prefHeight="224.0" prefWidth="165.0" style="-fx-background-color: #eed09d;">
+               <children>
+                  <Label fx:id="lblHp" prefHeight="30.0" prefWidth="183.0" text="VIDA">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="4.0" />
+                     </VBox.margin>
+                  </Label>
+                  <ProgressBar fx:id="pbarVida" minHeight="-Infinity" prefHeight="26.0" prefWidth="182.0" progress="0.0" style="-fx-accent: #79f281;" />
+                  <Label fx:id="lblNivel" minWidth="-Infinity" prefHeight="374.0" prefWidth="178.0" style="-fx-border-color: #663c0a;" text="Label">
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="lblExperiencia" minWidth="-Infinity" prefHeight="374.0" prefWidth="178.0" style="-fx-border-color: #663c0a;" text="Label">
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="lblAgilidad" minWidth="-Infinity" prefHeight="374.0" prefWidth="178.0" style="-fx-border-color: #663c0a;" text="Label">
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="lblConstitucion" minWidth="-Infinity" prefHeight="374.0" prefWidth="178.0" style="-fx-border-color: #663c0a;" text="Label">
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="lblFuerza" minWidth="-Infinity" prefHeight="378.0" prefWidth="178.0" style="-fx-border-color: #663c0a;" text="Label">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+                  <Button fx:id="btnSalir" mnemonicParsing="false" onAction="#salir" prefHeight="25.0" prefWidth="199.0" style="-fx-background-color: #663c0a;" text="Salir" textFill="WHITE" />
+               </children>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </VBox>
+         </children>
+      </HBox>
+      <Pane fx:id="contenedorCombate" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="393.0" prefWidth="600.0" style="-fx-border-color: brown; -fx-border-width: 2px; -fx-background-image: url(&quot;/img/fondo_combate.png&quot;);">
+         <children>
+            <Pane layoutX="38.0" layoutY="22.0" prefHeight="134.0" prefWidth="138.0" style="-fx-border-color: #663c0a; -fx-border-width: 20px; -fx-padding: 2px;">
+               <children>
+                  <ImageView fx:id="imgCombatePj" fitHeight="108.0" fitWidth="107.0" layoutX="15.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Pane>
+            <Pane layoutX="430.0" layoutY="22.0" prefHeight="134.0" prefWidth="138.0" style="-fx-border-color: #663c0a; -fx-border-width: 20px;">
+               <children>
+                  <ImageView fx:id="imgCombateNpc" fitHeight="108.0" fitWidth="116.0" layoutX="15.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-radius: 0.5; -fx-border-color: #663c0a; -fx-padding: 2px;" />
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Pane>
+            <Button fx:id="btnHuir" layoutX="437.0" layoutY="350.0" mnemonicParsing="false" onAction="#huir" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: #663c0a;" text="Huir" textFill="WHITE">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <Button fx:id="btnAtacar" layoutX="44.0" layoutY="350.0" mnemonicParsing="false" onAction="#atacar" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: #663c0a;" text="Atacar" textFill="WHITE">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <Label fx:id="lblCombatePj" alignment="CENTER" layoutX="38.0" layoutY="184.0" prefHeight="160.0" prefWidth="198.0" text="Fuerza &#10;Agilidad&#10;Vida &#10;" textFill="WHITE" />
+            <Label fx:id="logCombatePj" layoutX="237.0" layoutY="170.0" text="Pj ataca npc" textFill="WHITE" />
+            <Label fx:id="lblCombateNpc" alignment="CENTER" layoutX="425.0" layoutY="184.0" prefHeight="160.0" prefWidth="138.0" text="Fuerza &#10;Agilidad&#10;Vida &#10;" textFill="WHITE" />
+            <Label fx:id="lblTituloCombate" layoutX="225.0" layoutY="22.0" text="Combate Singular" textFill="WHITE" />
+            <Label fx:id="logCombateNpc" layoutX="237.0" layoutY="197.0" text="Npc ataca pj" textFill="WHITE" />
+         </children>
+         <effect>
+            <DropShadow height="25.0" radius="12.0" spread="0.06" width="25.0" />
+         </effect>
+      </Pane>
+      <Button fx:id="btnReiniciar" contentDisplay="CENTER" mnemonicParsing="false" onAction="#reiniciarMapa" prefHeight="117.0" prefWidth="282.0" style="-fx-background-color: #663c0a;" text="&#9;Lamentable....&#10;&#10;Pulsa este boton o [ Espacio ]&#10;para reiniciar el nivel&#10;" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Pane fx:id="contenedorPausa" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDetected="#cargarPartidaGuardada" prefHeight="393.0" prefWidth="600.0" style="-fx-background-image: url(&quot;/img/pausa.png&quot;); -fx-background-color: white; -fx-border-color: brown; -fx-border-width: 2px;">
+         <children>
+            <Label fx:id="lblPausa" alignment="CENTER" contentDisplay="CENTER" layoutX="226.0" layoutY="30.0" prefHeight="30.0" prefWidth="148.0" text="Partida Pausada" textFill="WHITE" />
+            <Button fx:id="btnPSalir" layoutX="226.0" layoutY="267.0" mnemonicParsing="false" onAction="#salir" prefHeight="25.0" prefWidth="148.0" style="-fx-background-color: #663c0a;" text="Salir del juego" textFill="WHITE" />
+            <Button fx:id="btnGuardar" layoutX="226.0" layoutY="222.0" mnemonicParsing="false" onAction="#guardarPartida" prefHeight="25.0" prefWidth="148.0" style="-fx-background-color: #663c0a;" text="Guardar Partida" textFill="WHITE" />
+            <Button fx:id="btnCargarPartida" layoutX="226.0" layoutY="178.0" mnemonicParsing="false" onAction="#cargarPartidaGuardada" prefHeight="25.0" prefWidth="148.0" style="-fx-background-color: #663c0a;" text="Cargar Partida" textFill="WHITE" />
+            <Button fx:id="btnVolverPausa" layoutX="226.0" layoutY="312.0" mnemonicParsing="false" onAction="#volverPausa" prefHeight="25.0" prefWidth="148.0" style="-fx-background-color: #663c0a;" text="Volver al juego" textFill="WHITE" />
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Pane>
+      <Pane fx:id="contenedorInventario" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="393.0" prefWidth="600.0" style="-fx-background-image: url(&quot;/img/inventario.png&quot;); -fx-background-color: grey; -fx-border-color: brown; -fx-border-width: 2px;">
+         <children>
+            <ListView fx:id="listInventario" layoutX="388.0" layoutY="218.0" prefHeight="93.0" prefWidth="198.0" />
+            <Label fx:id="lblPrecio" layoutX="292.0" layoutY="60.0" prefHeight="17.0" prefWidth="138.0" text="Precio de venta" textFill="WHITE" />
+            <Label fx:id="lblNombre" layoutX="292.0" layoutY="83.0" prefHeight="17.0" prefWidth="223.0" text="Nombre" textFill="WHITE" />
+            <Label fx:id="lblTipo" layoutX="292.0" layoutY="109.0" prefHeight="17.0" prefWidth="223.0" text="Tipo" textFill="WHITE" />
+            <Label fx:id="lblEmpuñadura" layoutX="292.0" layoutY="157.0" prefHeight="17.0" prefWidth="223.0" textFill="WHITE" />
+            <Label fx:id="lblStat" layoutX="292.0" layoutY="134.0" prefHeight="17.0" prefWidth="223.0" text="Aumento" textFill="WHITE" />
+            <Button fx:id="btnEquipar" layoutX="236.0" layoutY="197.0" mnemonicParsing="false" onAction="#equipar" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: #663c0a;" text="&gt;- Equipar " textFill="WHITE" />
+            <Button fx:id="btnVolverInventario" layoutX="31.0" layoutY="338.0" mnemonicParsing="false" onAction="#volverInventario" prefHeight="25.0" prefWidth="116.0" style="-fx-background-color: #663c0a;" text="Volver" textFill="WHITE" />
+            <Label fx:id="lblTituloInventario" layoutX="242.0" layoutY="14.0" prefHeight="20.0" prefWidth="116.0" text="Inventario " textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="imgImagen" fitHeight="93.0" fitWidth="116.0" layoutX="176.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="lblMonedas" layoutX="485.0" layoutY="350.0" prefHeight="17.0" prefWidth="80.0" text="Monedas" textFill="WHITE" />
+            <ListView fx:id="listEquipo" layoutX="14.0" layoutY="218.0" prefHeight="93.0" prefWidth="198.0" />
+            <Button fx:id="btnDesequipar" layoutX="236.0" layoutY="240.0" mnemonicParsing="false" onAction="#desequipar" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: #663c0a;" text=" Desequipar  -&lt; " textFill="WHITE" />
+            <Button fx:id="btnVender" layoutX="236.0" layoutY="282.0" mnemonicParsing="false" onAction="#venderItem" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: #663c0a;" text="Vender" textFill="WHITE" />
+            <Label fx:id="lblEquipo" alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="187.0" prefHeight="17.0" prefWidth="174.0" text="Equipo " textFill="WHITE" />
+            <Label fx:id="lblInventario" alignment="CENTER" contentDisplay="CENTER" layoutX="386.0" layoutY="187.0" prefHeight="17.0" prefWidth="174.0" text="Inventario" textFill="WHITE" />
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Pane>
+   </children>
+</StackPane>

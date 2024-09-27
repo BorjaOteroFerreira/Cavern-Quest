@@ -1,0 +1,7 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\Users\\zito1\\Desktop\\gson-2.10.1.jar"
+    ],
+    "docwriter.language": "Spanish"
+}
